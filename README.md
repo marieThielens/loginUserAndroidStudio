@@ -1,4 +1,4 @@
-# Utilisateur connection base android studio`
+# Utilisateur connection base android studio
 
 ## fichier src/MainActivity.java
 
@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Récupérer mes éléments ( visuel ) à l'aide de l'id
+         // Récupérer mes éléments ( visuel ) à l'aide de l'id. R c'est la classe de l'id
+                // par defaut findViewById est une View. Il faut préciser quel type de vue (un cast)
         phrase_login_demandeNom = (TextView)  findViewById(R.id.phrase_login_demandeNom);
         btnLogin = (Button) findViewById(R.id.btn_login_conncet);
         nomUtilisateur = (EditText) findViewById(R.id.nomUtilisateur);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 // l'utilisateur a rentré le bon nom et mot de passe
                 if( nomUtilisateur.getText().toString().equals("marie")&& mdp.getText().toString().equals("azerty")) {
                     Toast.makeText(getApplicationContext() , "Vous allez être redirigé" , Toast.LENGTH_LONG).show();
+Toast.makeText(getApplicationContext() , "Bonjour " + nomUtilisateur.getText() , Toast.LENGTH_LONG).show();
                 } else {
                     // mauvais mot de passe
                     Toast.makeText(getApplicationContext(), "Mauvais nom ou mot de passe", Toast.LENGTH_LONG).show();
