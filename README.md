@@ -3,13 +3,13 @@
 ## fichier src/MainActivity.java
 
 ```java
-public class MainActivity extends AppCompatActivity {
+// implements pour le onclick
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView phrase_login_demandeNom;
     private EditText nomUtilisateur; // mon input
     private EditText mdp; // mon mot de passe
-    private Button btnLogin; // mon bouton
-    private Button btnCancel;
+    private Button btnLogin, btnCancel ; // mon bouton
     private TextView erreur;
 
     @Override
@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         // Récupérer mes éléments ( visuel ) à l'aide de l'id. R c'est la classe de l'id
-                // par defaut findViewById est une View. Il faut préciser quel type de vue (un cast)
+        // Récupérer mes éléments ( visuel ) à l'aide de l'id. R c'est la classe de l'id
+        // par defaut findViewById est une View. Il faut préciser quel type de vue (un cast)
         phrase_login_demandeNom = (TextView)  findViewById(R.id.phrase_login_demandeNom);
         btnLogin = (Button) findViewById(R.id.btn_login_conncet);
         nomUtilisateur = (EditText) findViewById(R.id.nomUtilisateur);
@@ -27,13 +27,15 @@ public class MainActivity extends AppCompatActivity {
         erreur = (TextView) findViewById(R.id.erreur);
             erreur.setVisibility(View.GONE); // mon texte n'est pas visible au dépoart
 
-        // Saisie utilisateur
-
-        // Désactiver le bouton tant qu'il y a pas de nom
+        // Désactiver le bouton tant qu'il y a pas de nom d'une longueur de 5
         btnLogin.setEnabled(false);
 
+        // Ecouter mes boutons
+        btnLogin.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
 
-        // methode quand l'utilisateur rentre du texte
+
+        // ......... methode quand l'utilisateur rentre du texte..............
         nomUtilisateur.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -47,27 +49,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) { }
         });
-        // Ajouter l'évenement à mon bouton se connecter
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // l'utilisateur a rentré le bon nom et mot de passe
-                if( nomUtilisateur.getText().toString().equals("marie")&& mdp.getText().toString().equals("azerty")) {
-                    Toast.makeText(getApplicationContext() , "Vous allez être redirigé" , Toast.LENGTH_LONG).show();
-Toast.makeText(getApplicationContext() , "Bonjour " + nomUtilisateur.getText() , Toast.LENGTH_LONG).show();
-                } else {
-                    // mauvais mot de passe
-                    Toast.makeText(getApplicationContext(), "Mauvais nom ou mot de passe", Toast.LENGTH_LONG).show();
-                }
+    }
+
+    // Ce qui se passe après avoir cliqué sur l'un des boutons
+    @Override
+    public void onClick(View v) {
+        if (v == btnLogin) { // si c'est le bouton de login
+            // l'utilisateur a rentré le bon nom et mot de passe
+            if( nomUtilisateur.getText().toString().equals("marie")&& mdp.getText().toString().equals("azerty")) {
+                Toast.makeText(getApplicationContext() , "Vous allez être redirigé" , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext() , "Bonjour " + nomUtilisateur.getText() , Toast.LENGTH_LONG).show();
+            } else {
+                // mauvais mot de passe
+                Toast.makeText(getApplicationContext(), "Mauvais nom ou mot de passe", Toast.LENGTH_LONG).show();
             }
-        });
-        // Ajouter l'evenement à mon bouton annuler
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               finish();
-           }
-        });
+        }
+        else if (v == btnCancel) {
+            finish();
+        }
     }
 }
 ```
