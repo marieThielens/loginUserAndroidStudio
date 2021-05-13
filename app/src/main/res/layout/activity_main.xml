@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
+    android:background="#3F3F3F"
     >
     <ImageView
         android:layout_width="wrap_content"
@@ -21,6 +22,9 @@
         android:padding="20dp"
         android:text="@string/phrase_login_demandeNom"
         android:gravity="center"
+        android:textColor="@color/design_default_color_background"
+        android:textSize="20dp"
+        android:textStyle="italic"
         />
     <EditText
         android:id="@+id/nomUtilisateur"
@@ -28,9 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:textColorHint="@color/design_default_color_background"
         android:hint ="Ecrivez votre nom"
         android:focusable = "true"
         android:textColorHighlight="#ff7eff15"
+        android:textStyle="italic"
         />
     <EditText
         android:id="@+id/mdp"
@@ -41,35 +47,54 @@
         android:hint="@string/mot_de_passe"
         android:inputType="textPassword"
         android:focusable = "true"
+        android:textColorHint="@color/design_default_color_background"
+        android:textStyle="italic"
+
         />
 
     <TextView
         android:id="@+id/erreur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text=""
         android:textSize="25dp"
+        android:textColor="@color/design_default_color_background"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/btn_login_conncet"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:text="@string/se_connecter"
             android:layout_marginTop="20dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="25dip"
+            android:layout_marginEnd="25dip"
+            android:backgroundTint="#88C8C8"
+            android:textColor="@color/black"
+
             />
         <Button
             android:id="@+id/btn_login_cancel"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:text="annuler"
             android:layout_marginTop="20dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:layout_gravity="center_horizontal|center_vertical"
-
+            android:layout_marginStart="25dip"
+            android:layout_marginEnd="25dip"
+            android:backgroundTint="#88C8C8"
+            android:textColor="@color/black"
             />
+    </LinearLayout>
 
 
 

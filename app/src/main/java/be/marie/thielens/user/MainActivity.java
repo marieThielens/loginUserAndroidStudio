@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin.setEnabled(false);
 
         // Ecouter mes boutons
-        btnLogin.setOnClickListener(this);
+        btnLogin.setOnClickListener(this); // Sans implementer en haut this n'aurait pas marché
         btnCancel.setOnClickListener(this);
 
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // Ce qui se passe après avoir cliqué sur l'un des boutons
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) { // View v represente le bouton qui a été cliqué
         if (v == btnLogin) { // si c'est le bouton de login
             // l'utilisateur a rentré le bon nom et mot de passe
             if( nomUtilisateur.getText().toString().equals("marie")&& mdp.getText().toString().equals("azerty")) {
