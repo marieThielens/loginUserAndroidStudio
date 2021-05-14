@@ -3,4 +3,8 @@
     <string name="phrase_login_demandeNom">Veuillez entrer votre nom d\'utilisateur ainsi que votre mot de passe</string>
     <string name="se_connecter">Se connecter</string>
     <string name="mot_de_passe">Mot de passe</string>
+    <string name="ecrivez_votre_nom">Ecrivez votre nom</string>
+    <string name="annuler">annuler</string>
+    <string name="s_inscrire">S\'inscrire</string>
+    <string name="texte_presentation_inscrire">Vous souhaitez vous inscrire ?</string>
 </resources>
