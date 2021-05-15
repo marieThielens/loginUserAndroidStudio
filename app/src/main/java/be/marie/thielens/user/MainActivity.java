@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(), "Mauvais nom ou mot de passe", Toast.LENGTH_LONG).show();
             }
         } else if (v == btnCancel) {
-            nomUtilisateur.setText("");
+            nomUtilisateur.setText(""); // Je remets les inputs à vide
             mdp.setText("");
             // finish(); // Sortir de l'application
         } else if (v == textNoRegister) {
@@ -89,7 +89,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("Demo", "Ceci est passé d un cote a l autre");
             finish(); // Arreter l'activité (la page ) précédente
         }
-
-
     }
 }
